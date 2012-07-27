@@ -385,7 +385,7 @@ public class DatabaseMetaDataSupportImpl implements DatabaseMetaDataSupport
 		    schema = normalizeCase(schema);
 		}
 			
-		return new QualifiedNameImpl(schema, name, this.supportsSchemasInDDL, this.supportsSchemasInDML);
+		return new QualifiedNameImpl(this.quote(schema), this.quote(name), this.supportsSchemasInDDL, this.supportsSchemasInDML);
 	}
 	
 	/**

@@ -49,12 +49,13 @@ public class XAExceptionFactoryTest
 	@Test
 	public void createExceptionFromException()
 	{
+		String message = "message";
 		Exception exception = new Exception("message");
 		
 		XAException result = this.factory.createException(exception);
 		
 		assertNotNull(result.getMessage());
-		assertEquals(exception.getMessage(), result.getMessage());
+		assertSame(message, result.getMessage());
 		assertSame(exception, result.getCause());
 	}
 	
